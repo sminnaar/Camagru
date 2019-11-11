@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  define('DS', DIRECTORY_SEPARATOR);
+  define('ROOT', dirname(__FILE__));
+  echo $_SERVER['PATH_INFO'];
+  $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : [];
+  //require_once(ROOT . DS . 'core' . DS . bootstrap.php);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <title>W3.CSS Template</title>
@@ -15,18 +25,18 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">PIC</a>
+    <!-- <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a> -->
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">../imgFLOPPY.jpg</a>
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-hide-small">|</a>
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CAMAGRU</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <!-- <div class="w3-dropdown-hover w3-hide-small">
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT US</a>
+    <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         <a href="#" class="w3-bar-item w3-button">Merchandise</a>
         <a href="#" class="w3-bar-item w3-button">Extras</a>
         <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div> -->
+      </div>
     </div>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
@@ -44,50 +54,50 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
   <!-- Automatic Slideshow Images -->
-  <div class="mySlides w3-display-container w3-center">
-    <img src="../img/FLOWER.jpg" style="width:200px">
+  <div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/FLOWER.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3 style="color:black">Its a Flower </h3>
+      <!-- <h3 style="color:black">Its a Flower </h3> -->
     </div>
   </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="../img/CARROT.jpg" style="width:200px">
+  <div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/CARROT.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3 style="color:black">Carrot</h3>
+      <!-- <h3 style="color:black">Carrot</h3> -->
     </div>
   </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="../img/TEAM.jpg" style="width:200px">
+  <div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/TEAM.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3 style="color:black">The Team</h3>
+      <!-- <h3 style="color:black">The Team</h3> -->
     </div>
   </div>
-  <div class="mySlides w3-display-container w3-center background">
-    <img src="../img/FLOPPY.jpg" style="width:200px">
+  <div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/FLOPPY.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-    <h3 style="color:black">Floppy</h3>
+    <!-- <h3 style="color:black">Floppy</h3> -->
     </div>
 </div>
-<div class="mySlides w3-display-container w3-center">
-    <img src="../img/ONE.jpg" style="width:200px">
+<div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/ONE.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-    <h3 style="color:black">ONE</h3>
+    <!-- <h3 style="color:black">ONE</h3> -->
     </div>
 </div>
-<div class="mySlides w3-display-container w3-center">
-    <img src="../img/GUY.jpg" style="width:200px">
+<div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/GUY.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-    <h3 style="color:black">The Guy</h3>
+    <!-- <h3 style="color:black">The Guy</h3> -->
     </div>
 </div>
-<div class="mySlides w3-display-container w3-center">
-    <img src="../img/MAMP.jpg" style="width:200px">
+<div class="mySlides w3-display-container w3-leftbar w3-animate-fading">
+    <img src="../img/MAMP.jpg" style="width:600px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-    <h3 style="color:black">Got MAMP?</h3>
+    <!-- <h3 style="color:black">Got MAMP?</h3> -->
 </div>
 </div>
   <!-- The Title Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <div class="w3-container w3-content w3-right-align w3-top w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">Camgru</h2>
     <p class="w3-opacity"><i>Share your experience</i></p>
     <!-- <p class="w3-justify">Like, Comment, Share, Experience</p> -->
@@ -99,12 +109,10 @@ body {font-family: "Lato", sans-serif}
     <input type="password" name="confirm_passwd" value="" placeholder="Confirm Password ..."><p />
     <input type="submit" name="register" value="Register">
     </form>
-    <div class="w3-row w3-padding-32">
-      <ul style="test-align:justify">
-        <li>Already a User?
+    <div class="w3-row">
+        <p style="test-align:center">Already a User?
           <a href="login">LOGIN</a>
-        </li>
-      </ul>
+        </p>
       <!-- <div class="w3-third">
         <p>Name</p>
         <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
@@ -231,9 +239,9 @@ body {font-family: "Lato", sans-serif}
 <script>
 // Automatic Slideshow - change image every 4 seconds
 var myIndex = 0;
-carousel();
+slide();
 
-function carousel() {
+function slide() {
   var i;
   var x = document.getElementsByClassName("mySlides");
   for (i = 0; i < x.length; i++) {
@@ -242,26 +250,26 @@ function carousel() {
   myIndex++;
   if (myIndex > x.length) {myIndex = 1}    
   x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
+  setTimeout(slide, 4000);    
 }
 
 // Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+// function myFunction() {
+//   var x = document.getElementById("navDemo");
+//   if (x.className.indexOf("w3-show") == -1) {
+//     x.className += " w3-show";
+//   } else { 
+//     x.className = x.className.replace(" w3-show", "");
+//   }
+// }
 
 // When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// var modal = document.getElementById('ticketModal');
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
 </script>
 
 </body>
