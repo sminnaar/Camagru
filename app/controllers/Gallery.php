@@ -191,7 +191,7 @@ class Gallery extends Controller {
                     $headers .= 'From:noreply@camagru.wtc.hi' . "\r\n";
                     $text = "Hello! <br><br>Someone has commented on your post.<br><br>Comment: " . $comment; 
                     mail($email, $subject, $text, $headers);
-                    echo "<br>User has been Notified!";
+                    echo "Notified!";
                 }
             }
         }
