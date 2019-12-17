@@ -15,7 +15,7 @@ $create_users = "CREATE TABLE IF NOT EXISTS users (
 		lname VARCHAR(255),
 		photo VARCHAR(255),
 		verified TINYINT DEFAULT 0,
-		notify TINYINT DEFAULT 0,
+		notify TINYINT DEFAULT 1,
 		token VARCHAR(255),
 	 	PRIMARY KEY (id)
 		);";
@@ -60,7 +60,7 @@ $test_posts = "INSERT INTO posts (`img`, `user`) VALUES
 				('img/stock/img_20191206061512.png', 3),
 				('img/stock/img_20191206061601.png', 3),
 				('img/stock/img_20191206061655.png', 3),
-				('img/stock/img_20191206061655.png', 4),
+				('img/stock/img_20191217040809.png', 4),
 				('img/stock/img_20191214005444.png', 4),
 				('img/stock/img_20191213032014.png', 4),
 				('img/stock/img_20191213032014.png', 4),

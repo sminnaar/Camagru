@@ -61,24 +61,32 @@ class Login extends Controller {
         if ($_POST) {
             $email = htmlspecialchars(htmlentities($_POST['email'], ENT_QUOTES | ENT_IGNORE, "UTF-8"));
             $pass = mt_rand(100000, 9999999);
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $check = $this->_db->query('SELECT email FROM users WHERE email = ?', ['email'=>$email])->results();
-                if ($check) {
-                    $id = $this->_db->query('SELECT id FROM users WHERE email = ?', ['email'=>$email])->results()[0]->id;
-                    $fields = ['pass'=>password_hash($pass, PASSWORD_BCRYPT)];
-                    $this->_db->update('users', $id, $fields);
-                    $subject = "Password reset | Camagru";
-                    $headers = "Content-type:text/html;charset=UTF-8" . "\r\n";
-                    $headers .= "MIME-Version: 1.0" . "\r\n";
-                    $headers .= 'From:noreply@camagru.wtc.hi' . "\r\n";
-                    $text = "Hello! <br><br>Your password has been reset to: ". $pass; 
-                    mail($email, $subject, $text, $headers);
-                    echo 'Please check your email!';
+            
+            if ($verify = $this->_db->query('SELECT verified FROM users WHERE email = ?', ['email'=>$email])->results()) {
+                $verify = $verify[0]->verified;
+            }
+            if ($verify) {
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $check = $this->_db->query('SELECT email FROM users WHERE email = ?', ['email'=>$email])->results();
+                    if ($check) {
+                        $id = $this->_db->query('SELECT id FROM users WHERE email = ?', ['email'=>$email])->results()[0]->id;
+                        $fields = ['pass'=>password_hash($pass, PASSWORD_BCRYPT)];
+                        $this->_db->update('users', $id, $fields);
+                        $subject = "Password reset | Camagru";
+                        $headers = "Content-type:text/html;charset=UTF-8" . "\r\n";
+                        $headers .= "MIME-Version: 1.0" . "\r\n";
+                        $headers .= 'From:noreply@camagru.wtc.hi' . "\r\n";
+                        $text = "Hello! <br><br>Your password has been reset to: ". $pass; 
+                        mail($email, $subject, $text, $headers);
+                        echo 'Please check your email!';
+                    } else {
+                        echo "Email address does not exist!";
+                    }
                 } else {
-                    echo "Email address does not exist!";
+                    echo "Please enter a valid email address.";
                 }
             } else {
-                echo "Please enter a valid email address.";
+                echo 'Please verify your email before trying to reset your password';
             }
         } else {
             Router::redirect('login');
