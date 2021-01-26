@@ -2,7 +2,7 @@
 
     // $DB_DSN = 'mysql:hostname=127.0.0.1;dbname=camagru;unix_socket=/opt/lampp/var/mysql/mysql.sock';
     $DB_DSN = 'mysql:hostname=127.0.0.1;dbname=camagru';
-    $DB_USER = 'root';
+    $DB_USER = 'camagru';
     // $DB_PASSWORD = '';
     $DB_PASSWORD = '1234567';
 
@@ -20,5 +20,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } 
 catch (PDOException $e) {
-    echo 'Connection to database failed: ' . $e->getMessage();
+    echo 'Booom!! /n';
+    echo 'Connection to database____failed: ' . $e->getMessage();
 }
